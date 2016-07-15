@@ -25,11 +25,8 @@ describe Oystercard do
 
   describe 'status of card' do
 
-    it 'has an empty list of journeys by default' do
-      expect(subject.journey_history_array).to be_empty
-    end
 
-    it 'is initially not in a journey' do
+   it 'is initially not in a journey' do
       expect(subject).not_to be_in_journey
     end
   end
@@ -66,14 +63,8 @@ describe Oystercard do
       expect{ subject.touch_out(exit_station) }.to change{ subject.balance }.by -Oystercard::MINIMUM_FARE
     end
 
-    context "#journey_history" do
-    it "should return a list of journeys made" do
-      subject.top_up(Oystercard::MINIMUM_FARE)
-      subject.touch_in(entry_station)
-      subject.touch_out(exit_station)
-      expect(subject.journey_history_array.last.entry_station).to eq entry_station
-    end
-  end
+
+  
   end
 
 end
